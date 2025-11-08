@@ -1,6 +1,9 @@
 clear;clc;
 close all;
 
+addpath('utils/');
+addpath('ScalarDiffraction/');
+
 %% calculation mode
 DiffractionMethod = {'assmm','asczt','asap'};
 n_method = length(DiffractionMethod);

@@ -1,6 +1,9 @@
 clear;clc;
 close all;
 
+addpath('utils/');
+addpath('VectorialDiffraction/');
+
 %% calculation mode
 FocusingMethod = {'smm_ap','czt_ap','int_ap'};
 n_method = length(FocusingMethod);
