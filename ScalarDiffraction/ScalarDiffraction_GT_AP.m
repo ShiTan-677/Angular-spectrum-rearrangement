@@ -67,7 +67,7 @@ Lfy = 1./Beam.PixelSize;
 fmax_fft = 1/(2*Beam.PixelSize);
 
 % maximum sampling interval limited by TF
-dfMax1 = sqrt(1-(lambda*fmax_fft)^2)/(lambda*minZ*fmax_fft);
+dfMax1 = sqrt(1-(lambda*fmax_fft)^2)/(lambda*minZ*fmax_fft); % 这里可能需要除以2
 
 % maximum sampling interval limited by observation plane
 dfxMax2 = 1/Lx;
@@ -78,7 +78,7 @@ dfx = min(dfxMax2,dfMax1);
 dfy = min(dfyMax2,dfMax1);
 
 s = 2;
-LRfx = max(ceil(Lfx/dfx*s), LRx);
+LRfx = max(ceil(Lfx/dfx*s), LRx); % 这里可能不需要乘2
 LRfy = max(ceil(Lfy/dfy*s), LRy);
 
 % spatial frequency coordinate

@@ -90,7 +90,7 @@ phs_all = cell(1,n_method);
 E_all = cell(1,n_method);
 
 I_all{n_method} = I_gt;
-phs_gt = wrapTo2Pi(angle(E_gt)-phs_tilt);
+phs_gt = wrapTo2Pi(angle(E_gt)-phs_tilt); % 这是不是太粗糙了？
 phs_all{n_method} = phs_gt;
 E_all{n_method} = E_gt/max(abs(E_gt(:)));
 
