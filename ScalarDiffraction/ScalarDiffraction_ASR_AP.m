@@ -95,7 +95,7 @@ fzz = sqrt(1/lambda^2-(fxx.^2+fyy.^2));
 fzz(lambda^2.*(fxx.^2+fyy.^2)>1) = nan;
 
 %% calculation
-F0 = mdft(E0, xd, yd, fx, fy);  % FT
+F0 = mdft(E0, xd, yd, fx, fy);  % FT % ASR时间复杂度O(N^3)，GT的时间复杂度是O(N^4)，CZT的时间复杂度是O(N^2logN)，但是ASR的实际速度更快。
 
 % coordinate projection
 fuu = cos(theta2)*cos(phi2)*fxx+cos(theta2)*sin(phi2)*fyy-sin(theta2)*fzz;

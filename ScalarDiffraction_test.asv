@@ -185,4 +185,4 @@ sigma_czt = sum(abs(E_all{2} - E_all{3}).^2,'all')/sum(abs(E_all{3}).^2,'all')
 
 time_MTP = timeit(@() ScalarDiffraction_ASR_AP(Beam,Scope,number_u,number_v))
 time_CZT = timeit(@() ScalarDiffraction_CZT_AP(Beam,Scope))
-time_GT = timeit(@() ScalarDiffraction_GT_AP(Beam,Scope))
+time_GT = timeit(@() ScalarDiffraction_CZT_AP(Beam,Scope))
