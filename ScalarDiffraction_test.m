@@ -90,7 +90,7 @@ phs_all = cell(1,n_method);
 E_all = cell(1,n_method);
 
 I_all{n_method} = I_gt;
-phs_gt = wrapTo2Pi(angle(E_gt)-phs_tilt); % 这是不是太粗糙了？这一步意义何在？下面也是。
+phs_gt = wrapTo2Pi(angle(E_gt)-phs_tilt); % 批注：这一步的意义在于分析比较的时候，我们并不关注倾斜平面带来的相位变化。
 phs_all{n_method} = phs_gt;
 E_all{n_method} = E_gt/max(abs(E_gt(:)));
 
@@ -120,7 +120,7 @@ for ii = 1:(n_method-1)
     I = abs(Eout).^2;
     I = I./max(I(:));
     I_all{ii} = I;
-    phs_all{ii} = wrapTo2Pi(angle(Eout)-phs_tilt); % 这一步意义何在？上面也是。
+    phs_all{ii} = wrapTo2Pi(angle(Eout)-phs_tilt);
 
     figure(fig_db);
     subplot(2,n_method,ii);
@@ -185,4 +185,3 @@ sigma_czt = sum(abs(E_all{2} - E_all{3}).^2,'all')/sum(abs(E_all{3}).^2,'all')
 
 time_MTP = timeit(@() ScalarDiffraction_ASR_AP(Beam,Scope,number_u,number_v))
 time_CZT = timeit(@() ScalarDiffraction_CZT_AP(Beam,Scope))
-time_GT = timeit(@() ScalarDiffraction_GT_AP(Beam,Scope))
